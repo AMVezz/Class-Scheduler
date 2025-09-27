@@ -1,2 +1,2 @@
-# Class-Scheduler-Frontend
+# Class-Scheduler
 Frontend
