@@ -27,14 +27,4 @@ app.get("/api/hello", (req, res) => {
   res.json({ message: "Hello from the backend 👋" });
 });
 
-app.get("/api/courses", async (req, res) => {
-  try {
-    const result = await db.query("SELECT * FROM courses");
-    res.json(result.rows);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Error fetching courses");
-  }
-});
-
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
