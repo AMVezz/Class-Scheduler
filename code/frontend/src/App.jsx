@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Home from '/src/pages/Home'; 
-import Login from '/src/pages/Login';
-import ClassSearch from '/src/pages/ClassSearch';
+import Home from './pages/Home'; 
+import Login from './pages/Login';
+import ClassSearch from './pages/ClassSearch';
 import './App.css'
 
 function App() {
