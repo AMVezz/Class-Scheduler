@@ -1,0 +1,8 @@
+# Node modules
+node_modules/
+
+# Firebase Admin service account
+code/backend/serviceAccountKey.json
+
+# Logs
+*.log
