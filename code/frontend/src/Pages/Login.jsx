@@ -4,10 +4,12 @@
 
 import { useState, useEffect } from 'react';
 import {useForm} from 'react-hook-form'
+import app from "../firebase";
+
+
+
 
 function Login() {
-	
-	
 	const {
 		//hooks from react-hook-form library below
 
@@ -17,9 +19,11 @@ function Login() {
 	} = useForm(); 
 
 
+
+
 	//onSubmit runs when form is submitted successfuly. 
 	const onSubmit = (data) =>{
-		console.log("Form data: ", data); //we'll send data to backend API when thats set up. data = (email+password)
+		console.log("Form data: ", data); //we'll send 'data' to backend API when thats set up. data = (email+password)
 	}
 	
 	return (
