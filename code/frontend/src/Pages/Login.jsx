@@ -8,6 +8,7 @@ import {useForm} from 'react-hook-form'
 import app from "../firebase";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import {Link} from "react-router-dom";
+import "./Login.css"; 
 
 const auth = getAuth(app); 
 
@@ -48,7 +49,11 @@ function Login() {
 	};
 	
 	return (
-		<div>
+		<div className="login-side">
+			<div className="login-form">
+			<h2>Welcome back</h2>
+			<p>Please enter your details...</p>
+			
 		<form onSubmit={handleSubmit(onSubmit)}>
 		  <input
 			type="email"
@@ -59,4 +64,27 @@ function Login() {
 	
 		  <input
 			type="password"
-		
+			placeholder="Password"
+			{...register("password", { required: true })}
+		  />
+		  {errors.password && <span>Password is required!</span>}
+	
+		  <button type="submit">Login</button>
+		</form>
+
+		<p>
+			Don't have an account? <Link to="/register">Register here!</Link>
+		</p>
+		</div>
+
+		<div className="login-page-image">
+			<img src="logo-image.jpeg" alt="loginImage" />
+		</div>
+		</div>
+
+	  );
+	
+}
+
+
+export default Login;
