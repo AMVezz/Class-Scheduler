@@ -25,8 +25,7 @@ function Login() {
 	} = useForm(); 
 
 
-	//navigate used to send user to different pages
-	//const navigate = useNavigate(); 
+	
 
 
 	//onSubmit runs when form is submitted successfuly. 
@@ -40,8 +39,7 @@ function Login() {
 
 			console.log("Logged in: ", userCredential.user.email); 
 
-			//brings user to class search page
-			//navigate("/classSearch"); 
+			 
 
 		} catch (error) {
 			console.error("Login failed: ", error.message); 

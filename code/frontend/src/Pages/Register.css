@@ -1,0 +1,91 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+  }
+  
+  .register-page {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("/register-background.jpeg") no-repeat center center fixed;
+    background-size: cover;
+  }
+
+/*Background image */
+.register-page {
+    height: 100vh;       
+    width: 100vw;        
+    margin: 0;           
+    padding: 0;
+    overflow: hidden;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("/register-background.jpeg") no-repeat center center fixed;
+    background-size: cover; /* ensures it always fills entire area */
+  }
+
+
+/* Register button */
+.register-page button {
+    background-color: maroon;
+    border-radius: 9px;
+    color: white;
+    padding: 0.75rem 1rem;
+  }
+  
+  .register-page button:hover {
+    background-color: black;
+  }
+  
+  .register-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #fff;
+    padding: 2rem;
+    width: 320px;
+    min-height: 400px;
+    min-width: 350px;
+
+  }
+  
+  .register-box form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem; 
+    width: 100%;
+  }
+  
+  .register-field {
+    width: 100%;
+  }
+  
+  .register-field input {
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 9px;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    color: black; 
+  }
+  
+  .register-field span {
+    display: block;
+    min-height: 1.2rem;
+    font-size: 0.85rem;
+    color: red;
+  }
+  
+  .register-box h2 {
+    color: black;
+    margin-bottom: 1rem;
+  }
