@@ -4,6 +4,7 @@
 
 import React from "react"; 
 import { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import {useForm} from 'react-hook-form'
 import app from "../firebase";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
@@ -23,6 +24,8 @@ function Login() {
 		handleSubmit, //wraps onSubmit so validation runs first
 		formState: {errors} //holds validation error msg's
 	} = useForm(); 
+	const navigate = useNavigate();
+
 
 
 	
@@ -38,6 +41,8 @@ function Login() {
 			);
 
 			console.log("Logged in: ", userCredential.user.email); 
+			navigate("/schedule");
+
 
 			 
 

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
 import ClassSearch from './Pages/ClassSearch';
+import Schedule from "./Pages/Schedule";
 import './App.css';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
@@ -26,6 +27,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register?" element={<Register />} />
        {user && <Route path="/classSearch" element={<ClassSearch />} />}
+       {user && <Route path="/schedule" element={<Schedule />} />}
       </Routes>
     </Router>
   );
