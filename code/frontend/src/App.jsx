@@ -26,6 +26,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register?" element={<Register />} />
+        <Route path="/classSearch-dev" element={<ClassSearch />} />
+
        {user && <Route path="/classSearch" element={<ClassSearch />} />}
        {user && <Route path="/schedule" element={<Schedule />} />}
       </Routes>
