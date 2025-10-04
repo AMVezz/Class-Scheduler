@@ -1,43 +1,39 @@
+require('dotenv').config();
 const express = require("express");
 const cors = require("cors");
-const admin = require("firebase-admin");
-const fs = require("fs");
+const db = require("./config/db");
+const courseRouter = require("./routes/courseRouter"); // matches file name exactly
+
 
 const app = express();
+
+app.use("/api/courses", courseRouter);
+
+app.get("/whoami", (_req, res) => res.send("server.js is running"));
+
+
+const PORT = process.env.PORT || 3001;
+
+app.use(cors());
 app.use(express.json());
 
-// Allow your frontend origin
-app.use(cors({ origin: "http://localhost:5173" }));
-
-// Load service account
-const serviceAccount = JSON.parse(
-  fs.readFileSync("serviceAccountKey.json", "utf8")
-);
-
-// Fix newlines in private key
-serviceAccount.private_key = serviceAccount.private_key.replace(/\\n/g, "\n");
-
-// Initialize Firebase Admin
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+// Test route
+app.get("/", (req, res) => {
+  res.send("Backend API is running 🚀");
 });
 
-// Example protected API
-app.get("/api/protected", async (req, res) => {
-  const authHeader = req.headers.authorization;
-  if (!authHeader) return res.status(401).json({ message: "No token provided" });
-
-  const token = authHeader.split(" ")[1];
+// Example DB route
+app.get("/api/courses", async (req, res) => {
   try {
-    const decodedToken = await admin.auth().verifyIdToken(token);
-    res.json({ message: `Hello ${decodedToken.email}, you are authorized!` });
+    const result = await db.query("SELECT * FROM courses");
+    res.json(result.rows);
   } catch (err) {
-    res.status(401).json({ message: "Invalid token", error: err.message });
+    res.status(500).send(err.message);
   }
 });
 
-
-const PORT = 5001;
-app.listen(PORT, () => {
-  console.log(`Backend running at http://localhost:${PORT}`);
+app.get("/api/hello", (req, res) => {
+  res.json({ message: "Hello from the backend 👋" });
 });
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
