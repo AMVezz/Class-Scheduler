@@ -3,12 +3,15 @@ const express = require("express");
 const cors = require("cors");
 const db = require("./config/db");
 const courseRouter = require("./routes/courseRouter"); // matches file name exactly
-app.use("/api/courses", courseRouter);
 
+
+const app = express();
+
+app.use("/api/courses", courseRouter);
 
 app.get("/whoami", (_req, res) => res.send("server.js is running"));
 
-const app = express();
+
 const PORT = process.env.PORT || 3001;
 
 app.use(cors());
