@@ -78,8 +78,8 @@
     color: white; 
     padding: 0.75rem 1rem;
     transition: all 0.5s ease;
-
-    
+    font-family: 'Manrope';
+    font-weight: 400;
 
   }
 
@@ -132,7 +132,7 @@
 
 
 /*Google sign - Textbox */
-.google-login {
+.google-login1 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -146,13 +146,18 @@
   cursor: pointer;
   transition: all 0.5s ease;
   font-family: 'Manrope';
-  font-weight: 100;
+  font-weight: 300;
   
 }
 
-.google-login:hover{
+.google-login1:hover{
   background-color: darkgray !important;
   color: white !important; 
   border-color: gray;
 }
 
+
+.login-side p{
+  font-family: 'Manrope';
+  font-weight: 100;
+}

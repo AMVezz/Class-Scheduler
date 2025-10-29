@@ -92,7 +92,7 @@ function Login() {
 		  {errors.password && <span>Password is required!</span>}
 	
 		  <button type="submit">Login</button>
-		  <button type="button" onClick={handleGoogleSignIn} className="google-login">
+		  <button type="button" onClick={handleGoogleSignIn} className="google-login1">
 		  <FcGoogle size={20} style={{ marginRight: "0.1px" }} />
 			Sign in with Google
 		  </button>
