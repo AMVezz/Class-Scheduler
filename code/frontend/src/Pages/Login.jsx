@@ -55,7 +55,7 @@ function Login() {
 		<div className="login-side">
 			<div className="login-form">
 			<h2>Welcome back</h2>
-			<p>Please enter your details...</p>
+			<p>Please enter your details</p>
 			
 		<form onSubmit={handleSubmit(onSubmit)}>
 		  <input
@@ -91,3 +91,6 @@ function Login() {
 
 
 export default Login;
+
+
+//testing if branch is correct
