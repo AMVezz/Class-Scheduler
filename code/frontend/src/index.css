@@ -72,7 +72,7 @@ button:focus-visible {
 @font-face {
   font-family: 'Oswald';
   src: url('./assets/fonts/Oswald-VariableFont_wght.ttf');
-  font-weight: bold;
+  font-weight: normal;
   font-style: normal;
 }
 

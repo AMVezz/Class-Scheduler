@@ -10,6 +10,7 @@ import app from "../firebase";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import {Link} from "react-router-dom";
 import "./Login.css"; 
+import logo from "../assets/photos/class-logo.png"; 
 
 const auth = getAuth(app); 
 
@@ -54,6 +55,12 @@ function Login() {
 	return (
 		<div className="login-side">
 			<div className="login-form">
+			
+			<div className="logo-image">
+			<img src={logo} alt="logo" />
+			<h3>class scheduler</h3>
+			</div>
+
 			<h2>Welcome back</h2>
 			<p>Please enter your details</p>
 			
