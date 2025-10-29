@@ -49,13 +49,14 @@
     font-family: 'Manrope';
     font-size: 35px;
     font-weight: 800;
+   
   }
 
   /* Smaller text*/
   .login-form p{
     color: grey; 
     font-family: 'Manrope';
-    font-weight: 200;
+    font-weight: 100;
   }
 
   /*Input boxes (email/password) */
@@ -65,6 +66,7 @@
     border-radius: 3px;
     padding: 1rem 1rem;
     color: black; 
+    font-family: 'Manrope';
 
   }
 
@@ -75,6 +77,9 @@
     border-radius: 3px;
     color: white; 
     padding: 0.75rem 1rem;
+    transition: all 0.5s ease;
+
+    
 
   }
 
@@ -96,8 +101,8 @@
 
 /* Logo (top-right) */
 .logo-image img{
-  width: 60px; 
-  height: 65px;
+  width: 35px; 
+  height: 39px;
   transition: transform 0.3s ease, filter 0.3s ease; 
 }
 
@@ -105,13 +110,49 @@
 .logo-image h3{
   color: black; 
   font-family: "Oswald";
-font-size: QSA;
-  
+  font-weight: 100;
+  font-size: 20px;
+  line-height: 40px;
+  margin: 0; 
+
 }
 
 /* Hover effect on logo in top right */
 .logo-image img:hover{
   transform: scale(0.9);
+  cursor: pointer;  
+}
+
+
+/* Aligning 'welcome back' and text below it to the left */
+.login-box{
+  width: 72%;
+  max-width: 500%;
+}
+
+
+/*Google sign - Textbox */
+.google-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: white !important;
+  border-color: lightgray;
+  color: gray !important;
+  border-radius: 3px;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
   cursor: pointer;
+  transition: all 0.5s ease;
+  font-family: 'Manrope';
+  font-weight: 100;
   
 }
+
+.google-login:hover{
+  background-color: darkgray !important;
+  color: white !important; 
+  border-color: gray;
+}
+

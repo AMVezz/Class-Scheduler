@@ -1,16 +1,17 @@
-/*
-			Using React Hook Form (library) to make things a little easier here. 
-*/
+
 
 import React from "react"; 
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import {useForm} from 'react-hook-form'
 import app from "../firebase";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
 import {Link} from "react-router-dom";
 import "./Login.css"; 
 import logo from "../assets/photos/class-logo.png"; 
+import {provider} from "../firebase"; 				//google authentication stuff
+import { signInWithPopup } from "firebase/auth";
+import { FcGoogle } from "react-icons/fc";  
 
 const auth = getAuth(app); 
 
@@ -51,6 +52,17 @@ function Login() {
 			console.error("Login failed: ", error.message); 
 		}
 	};
+
+	const handleGoogleSignIn = async () => {
+		try {
+		  const result = await signInWithPopup(auth, provider);
+		  const user = result.user;
+		  console.log("Logged in with Google:", user.email);
+		  navigate("/schedule");
+		} catch (error) {
+		  console.error("Google Sign-In failed:", error.message);
+		}
+	  };
 	
 	return (
 		<div className="login-side">
@@ -60,10 +72,10 @@ function Login() {
 			<img src={logo} alt="logo" />
 			<h3>class scheduler</h3>
 			</div>
-
+			<div className="login-box">
 			<h2>Welcome back</h2>
 			<p>Please enter your details</p>
-			
+			</div>
 		<form onSubmit={handleSubmit(onSubmit)}>
 		  <input
 			type="email"
@@ -80,6 +92,10 @@ function Login() {
 		  {errors.password && <span>Password is required!</span>}
 	
 		  <button type="submit">Login</button>
+		  <button type="button" onClick={handleGoogleSignIn} className="google-login">
+		  <FcGoogle size={20} style={{ marginRight: "0.1px" }} />
+			Sign in with Google
+		  </button>
 		</form>
 
 		<p>

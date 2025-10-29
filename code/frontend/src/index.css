@@ -72,12 +72,21 @@ button:focus-visible {
 @font-face {
   font-family: 'Oswald';
   src: url('./assets/fonts/Oswald-VariableFont_wght.ttf');
-  font-weight: normal;
-  font-style: normal;
+ 
 }
 
 @font-face {
   font-family: 'Manrope';
   src: url('./assets/fonts/Manrope-VariableFont_wght.ttf');
   font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pattaya';
+  src: url('./assets/fonts/Pattaya-Regular.ttf')
+}
+
+@font-face {
+  font-family: 'Pacifico';
+  src: url('./assets/fonts/Pacifico-Regular.ttf');
 }
