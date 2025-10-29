@@ -79,6 +79,5 @@ button:focus-visible {
 @font-face {
   font-family: 'Manrope';
   src: url('./assets/fonts/Manrope-VariableFont_wght.ttf');
-  font-weight: bolder;
   font-style: normal;
 }
