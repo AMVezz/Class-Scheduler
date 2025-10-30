@@ -13,6 +13,9 @@ import {provider} from "../firebase"; 				//google authentication stuff
 import { signInWithPopup } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";  
 
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const auth = getAuth(app); 
 
 
@@ -43,7 +46,18 @@ function Login() {
 			);
 
 			console.log("Logged in: ", userCredential.user.email); 
-			navigate("/schedule");
+			
+			toast.success("Login successful!", {
+				position: "top-center",
+				autoClose: 3000,
+			  });
+			
+			//************ 
+			//replace 'schedule' w/ 'dashboard' when dashbaord is compelte
+			//************
+			setTimeout(() => {
+				navigate("/dashboard");
+			  }, 3000);
 
 
 			 
@@ -58,9 +72,16 @@ function Login() {
 		  const result = await signInWithPopup(auth, provider);
 		  const user = result.user;
 		  console.log("Logged in with Google:", user.email);
-		  navigate("/schedule");
+		  toast.success("Google Sign-In successful!", { position: "top-center", autoClose: 2000 });
+		  
+		  //************
+		  //replace 'schedule' with 'dashboard' once dashbaord is initiated. 
+		  //************
+		  setTimeout(() => navigate("/schedule"), 3000);
+		  
 		} catch (error) {
 		  console.error("Google Sign-In failed:", error.message);
+		  toast.error("Google Sign-In failed", { position: "top-center", autoClose: 3000 });
 		}
 	  };
 	
@@ -92,6 +113,7 @@ function Login() {
 		  {errors.password && <span>Password is required!</span>}
 	
 		  <button type="submit">Login</button>
+		 
 		  <button type="button" onClick={handleGoogleSignIn} className="google-login1">
 		  <FcGoogle size={20} style={{ marginRight: "0.1px" }} />
 			Sign in with Google
@@ -106,6 +128,7 @@ function Login() {
 		<div className="login-page-image">
 			<img src="landing5.png" alt="loginImage" />
 		</div>
+		<ToastContainer />
 		</div>
 
 	  );

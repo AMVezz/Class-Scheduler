@@ -9,6 +9,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
 import { useState, useEffect } from 'react';
 import Register from './Pages/Register';
+import Dashboard from "./Pages/Dashboard";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -25,8 +26,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register?" element={<Register />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/classSearch-dev" element={<ClassSearch />} />
+        <Route path="/dashboard" element={<Dashboard />} />
 
        {user && <Route path="/classSearch" element={<ClassSearch />} />}
        {user && <Route path="/schedule" element={<Schedule />} />}
