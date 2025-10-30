@@ -56,7 +56,7 @@ function Login() {
 			//replace 'schedule' w/ 'dashboard' when dashbaord is compelte
 			//************
 			setTimeout(() => {
-				navigate("/dashboard");
+				navigate("/schedule");
 			  }, 3000);
 
 
@@ -78,7 +78,7 @@ function Login() {
 		  //replace 'schedule' with 'dashboard' once dashbaord is initiated. 
 		  //************
 		  setTimeout(() => navigate("/schedule"), 3000);
-		  
+
 		} catch (error) {
 		  console.error("Google Sign-In failed:", error.message);
 		  toast.error("Google Sign-In failed", { position: "top-center", autoClose: 3000 });
