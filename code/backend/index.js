@@ -30,7 +30,7 @@ app.get("/api/courses", async (req, res) => {
 });
 
 app.get("/api/hello", (req, res) => {
-  res.json({ message: "Hello from the backend 👋" });
+  res.json({ message: "Hello from the backend" });
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
