@@ -19,7 +19,7 @@ VALUES
 ('ENGL402', 'Technical Writing', 'Dr. Parker', '08:30', '09:45', 'MWF'),
 ('STAT212', 'Intro to Statistics', 'Dr. Rivera', '12:00', '13:15', 'MWF'),
 ('HIST101', 'World History', 'Dr. Ortiz', '13:00', '14:15', 'TR'),
-('ECON101', 'Principles of Microeconomics', 'Dr. Shaw', '15:30', '16:45', 'MWF');
+('ECON101', 'Principles of Microeconomics', 'Dr. Shaw', '15:30', '16:45', 'MWF'),
 ('CPTS223', 'Advanced Object-Oriented Programming', 'Dr. Larson', '10:00', '11:15', 'TR'),
 ('CPTS327', 'Web Development', 'Dr. Thompson', '13:30', '14:45', 'MWF'),
 ('CPTS334', 'Computer Architecture', 'Dr. Shah', '09:00', '10:15', 'MWF'),
