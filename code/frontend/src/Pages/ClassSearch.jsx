@@ -76,8 +76,8 @@ export default function ClassSearch() {
         width: "100vw",
         marginLeft: "calc(50% - 50vw)",
         marginRight: "calc(50% - 50vw)",
-        height: "100vh",        // add this
-        overflowY: "scroll",    // add this
+        height: "100vh",
+        overflowY: "scroll",
         boxSizing: "border-box",
         padding: 16,
       }}
