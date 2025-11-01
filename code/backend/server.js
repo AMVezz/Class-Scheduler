@@ -6,16 +6,14 @@ const courseRouter = require("./routes/courseRouter"); // matches file name exac
 
 
 const app = express();
+app.use(cors());
+app.use(express.json());
 
 app.use("/api/courses", courseRouter);
 
 app.get("/whoami", (_req, res) => res.send("server.js is running"));
 
-
 const PORT = process.env.PORT || 3001;
-
-app.use(cors());
-app.use(express.json());
 
 // Test route
 app.get("/", (req, res) => {

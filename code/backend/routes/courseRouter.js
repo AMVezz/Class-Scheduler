@@ -1,7 +1,10 @@
 // code/backend/routes/courseRouter.js
 const express = require("express");
+const cors = require('cors');
+const db      = require("../config/db");
+
 const router = express.Router();
-const db = require("../config/db");
+router.use(cors());
 
 // GET /api/courses  -> list all courses
 router.get("/", async (_req, res) => {
