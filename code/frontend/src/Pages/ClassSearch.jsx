@@ -76,10 +76,10 @@ export default function ClassSearch() {
         width: "100vw",
         marginLeft: "calc(50% - 50vw)",
         marginRight: "calc(50% - 50vw)",
-        minHeight: "100vh",
+        height: "100vh",        // add this
+        overflowY: "scroll",    // add this
         boxSizing: "border-box",
         padding: 16,
-        overflowY: "auto",  // ← added: allow vertical scrolling
       }}
     >
       <div style={{ maxWidth: 900, margin: "0 auto" }}>
