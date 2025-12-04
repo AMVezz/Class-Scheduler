@@ -21,8 +21,54 @@ router.get("/", async (_req, res) => {
   }
 });
 
-// GET /api/courses/:id  -> single course by id
-router.get("/:id", async (req, res) => {
+
+router.get("/search", async (req, res) => {
+  try {
+    const { q = "", name = "", professor = "" } = req.query;
+
+    const terms = [];
+    const vals = [];
+    let i = 1;
+
+    const trim = (s) => (typeof s === "string" ? s.trim() : "");
+
+    const qVal = trim(q);
+    const nameVal = trim(name);
+    const profVal = trim(professor);
+
+    if (qVal) {
+      terms.push(`(code ILIKE '%' || $${i} || '%' OR title ILIKE '%' || $${i} || '%' OR instructor ILIKE '%' || $${i} || '%')`);
+      vals.push(qVal);
+    } else {
+      if (nameVal) {
+        terms.push(`(code ILIKE '%' || $${i} || '%' OR title ILIKE '%' || $${i} || '%')`);
+        vals.push(nameVal); i++;
+      }
+      if (profVal) {
+        terms.push(`instructor ILIKE '%' || $${i} || '%'`);
+        vals.push(profVal); i++;
+      }
+    }
+
+    if (terms.length === 0) return res.status(200).json([]); // nothing to search
+
+    const sql = `
+      SELECT id, code, title, instructor, start_time, end_time, days
+      FROM courses
+      WHERE ${terms.join(" AND ")}
+      ORDER BY code ASC
+      LIMIT 200;
+    `;
+    const result = await db.query(sql, vals);
+    return res.status(200).json(result.rows);
+  } catch (err) {
+    console.error("GET /api/courses/search failed:", err);
+    return res.status(500).json({ error: "Failed to search courses" });
+  }
+});
+
+router.get("/id/:id", async (req, res) => {
+
   const { id } = req.params;
 
   // basic validation
