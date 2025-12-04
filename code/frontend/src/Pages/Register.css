@@ -12,7 +12,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url("/register-background.jpeg") no-repeat center center fixed;
+    background: url("/cityscape.png") no-repeat center center fixed;
     background-size: cover;
   }
 
@@ -26,7 +26,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url("/register-background.jpeg") no-repeat center center fixed;
+    background: url("/cityscape.png") no-repeat center center fixed;
     background-size: cover; /* ensures it always fills entire area */
   }
 
@@ -37,6 +37,12 @@ html, body {
     border-radius: 9px;
     color: white;
     padding: 0.75rem 1rem;
+    width: 320px;
+    min-width: 350px;
+    border-radius: 3px !important;
+    transition: all 0.5s ease;
+    font-family: 'Manrope';
+
   }
   
   .register-page button:hover {
@@ -53,6 +59,7 @@ html, body {
     width: 320px;
     min-height: 400px;
     min-width: 350px;
+    border-radius: 3px;
 
   }
   
@@ -71,7 +78,7 @@ html, body {
   .register-field input {
     background-color: white;
     border: 1px solid lightgray;
-    border-radius: 9px;
+    border-radius: 3px;
     padding: 0.75rem 1rem;
     width: 100%;
     box-sizing: border-box;
@@ -88,4 +95,35 @@ html, body {
   .register-box h2 {
     color: black;
     margin-bottom: 1rem;
+    font-family:'Manrope';
+  }
+
+  .google-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: white !important;
+    color: gray !important;
+    border: 1px solid lightgray;
+    border-radius: 3px !important;
+    width: 320px;
+    min-width: 350px;
+    padding: 0.75rem 1rem;
+    font-family: 'Manrope';
+    font-weight: 500;
+    transition: all 0.5s ease;
+    cursor: pointer;
+  }
+  
+  .google-login:hover {
+    background-color: black !important;
+    color: white !important;
+    border-color: lightgray;
+  }
+
+  .register-box h3{
+    color: gray; 
+    font-family: 'Manrope';
+    font-weight: 200;
   }
