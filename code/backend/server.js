@@ -1,4 +1,5 @@
-require('dotenv').config();
+// code/backend/server.js
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const courseRouter = require("./routes/courseRouter");
@@ -13,10 +14,16 @@ app.use(express.json());
 // mount router
 app.use("/api/courses", courseRouter);
 
-// health
-app.get("/", (_req, res) => res.send("Backend API is running"));
-app.get("/whoami", (_req, res) => res.send("server.js is running"));
+// health routes
+app.get("/", (_req, res) => {
+  res.send("Backend API is running");
+});
 
-// no duplicate /api/courses here
+app.get("/whoami", (_req, res) => {
+  res.send("server.js is running");
+});
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// start server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});

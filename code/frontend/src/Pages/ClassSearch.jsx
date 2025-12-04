@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
-
 // Map "MWF" -> ["Mon","Wed","Fri"], "TR" -> ["Tue","Thu"]
 function parseDays(short) {
   const map = { M: "Mon", T: "Tue", W: "Wed", R: "Thu", F: "Fri" };
@@ -38,7 +37,7 @@ export default function ClassSearch() {
   useEffect(() => {
     let cancelled = false;
 
-    fetch("/api/courses") // via Vite proxy (to :3001)
+    fetch("http://localhost:3001/api/courses") // via Vite proxy (to :3001)
       .then((res) => {
         if (!res.ok) throw new Error("bad status");
         return res.json();
@@ -77,7 +76,8 @@ export default function ClassSearch() {
         width: "100vw",
         marginLeft: "calc(50% - 50vw)",
         marginRight: "calc(50% - 50vw)",
-        minHeight: "100vh",
+        height: "100vh",
+        overflowY: "scroll",
         boxSizing: "border-box",
         padding: 16,
       }}
@@ -132,4 +132,5 @@ export default function ClassSearch() {
       </div>
     </div>
   );
+
 }

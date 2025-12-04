@@ -4,6 +4,9 @@ import { auth } from "../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
+import {provider} from "../firebase"; 				//google authentication stuff
+import { signInWithPopup } from "firebase/auth";
+import { FcGoogle } from "react-icons/fc"; 
 
 //pop-up library below
 import { toast, ToastContainer } from "react-toastify";
@@ -16,6 +19,19 @@ function Register() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const handleGoogleSignIn = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      console.log("Registered with Google:", user.email);
+      toast.success("Google Sign-In successful!", { position: "top-center", autoClose: 3000 });
+      setTimeout(() => navigate("/schedule"), 3000);
+    } catch (error) {
+      console.error("Google Sign-In failed:", error.message);
+      toast.error("Google Sign-In failed", { position: "top-center", autoClose: 3000 });
+    }
+  };
 
   const onSubmit = async (data) => {
     try {
@@ -72,7 +88,11 @@ function Register() {
       </div>
 
       <button type="submit">Register</button>
-
+      <h3>or</h3>
+      <button type="button" onClick={handleGoogleSignIn} className="google-login">
+		  <FcGoogle size={20} style={{ marginRight: "4px" }} />
+        Register with Google
+		  </button>
       
     </form>
     </div>
